@@ -44,9 +44,10 @@ Provide 3-5 trend_points and 3-5 key_insights grounded in the snippets."""
 def _call_llm(product_query: str, snippets_text: str) -> dict:
     settings = get_settings()
     llm = ChatGroq(
-        model=settings.groq_model,
+        model=llm_config.fast_model,
         api_key=settings.groq_api_key,
         temperature=llm_config.temperature,
+        max_tokens=llm_config.max_tokens,
     )
     response = llm.invoke([
         {"role": "system", "content": _SYSTEM_PROMPT},

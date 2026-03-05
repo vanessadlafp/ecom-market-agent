@@ -79,6 +79,7 @@ class TestAgentStateFlow:
 
         final_state = {
             "product_query": "Test", "use_sample_data": False,
+            "language": "en",
             "raw_data": raw,
             "sentiment_result": sentiment,
             "trend_result": trends,

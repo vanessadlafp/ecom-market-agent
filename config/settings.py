@@ -22,13 +22,14 @@ class Settings(BaseSettings):
     api_reload: bool = False
 
     # Agent
-    agent_max_iterations: int = 10
-    scraper_max_results: int = 8
+    agent_max_iterations: int = 4
+    scraper_max_results: int = 4
     scraper_timeout: int = 15
     cache_ttl_seconds: int = 3600
 
     # Feature flags
-    use_sample_data: bool = False   # True → scraper returns data/samples/ instead of live DDG
+    use_sample_data: bool = False   # True → scraper uses data/samples/ instead of live DDG
+    report_language: str = "en"     # "en" | "fr" — language for LLM report output
 
 
 @lru_cache

@@ -58,6 +58,7 @@ logger = get_logger(__name__)
 class AgentState(TypedDict):
     product_query:    str
     use_sample_data:  bool
+    language:         str
     raw_data:         RawData         | None   # written by scrape_node
     sentiment_result: SentimentResult | None   # written by sentiment_node
     trend_result:     TrendResult     | None   # written by trends_node
@@ -151,6 +152,7 @@ async def chat(request: AnalysisRequest, graph=None) -> MarketReport:
     initial_state: AgentState = {
         "product_query":    request.product_query,
         "use_sample_data":  request.use_sample_data,
+        "language":         request.language,
         "raw_data":         None,
         "sentiment_result": None,
         "trend_result":     None,
@@ -177,6 +179,7 @@ async def chat(request: AnalysisRequest, graph=None) -> MarketReport:
     report = generate_report(
         product_query=request.product_query,
         raw_data=raw_data,
+        language=final_state["language"],
         sentiment=sentiment,
         trends=trends,
     )

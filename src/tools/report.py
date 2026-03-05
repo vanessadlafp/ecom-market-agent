@@ -10,27 +10,51 @@ import json
 
 from langchain_groq import ChatGroq
 
+from config import llm_config
 from config.settings import get_settings
 from src.utils.logger import get_logger
 from src.utils.schemas import MarketReport, RawData, SentimentResult, TrendResult
 
 logger = get_logger(__name__)
 
-_SYSTEM_PROMPT = """\
+_LANGUAGE_INSTRUCTIONS = {
+    "en": "Write all report content in English.",
+    "fr": (
+        "Rédigez tout le contenu du rapport en français. "
+        "Utilisez un registre professionnel et des termes du domaine du commerce électronique."
+    ),
+}
+
+_SYSTEM_PROMPT_TEMPLATE = """\
 You are a senior e-commerce market analyst writing a strategic intelligence report.
 You will receive structured JSON data from three research tools.
 Respond ONLY with valid JSON — no markdown, no preamble.
 
+{language_instruction}
+
 Required schema:
-{
+{{
   "executive_summary":         "<3-4 sentence paragraph>",
   "pricing_analysis":          "<detailed paragraph about pricing landscape>",
   "sentiment_analysis":        "<detailed paragraph about customer sentiment>",
   "market_trends":             "<detailed paragraph about market direction>",
   "strategic_recommendations": ["<actionable recommendation>", ...]
-}
+}}
 
-Provide 4-6 recommendations ordered by priority. Be specific and data-driven."""
+Critical rules:
+- pricing_analysis MUST quote the exact avg_price, min_price, max_price and individual
+  listing prices from the provided data. If pricing data is present, always state the
+  actual numbers (e.g. "Prices range from $849.99 to $1,299.00 with an average of $1,089.20").
+  Only say pricing is unavailable if avg_price is null AND sample_listings is empty.
+- sentiment_analysis MUST reference the specific key_positives and key_negatives provided.
+- market_trends MUST reference the specific trend_direction and data_points provided.
+- Provide 4-6 recommendations ordered by priority. Be specific and data-driven.
+"""
+
+
+def _build_prompt(language: str) -> str:
+    instruction = _LANGUAGE_INSTRUCTIONS.get(language, _LANGUAGE_INSTRUCTIONS["en"])
+    return _SYSTEM_PROMPT_TEMPLATE.format(language_instruction=instruction)
 
 
 def _build_context(
@@ -43,11 +67,11 @@ def _build_context(
 
     if raw_data:
         ctx["pricing"] = {
-            "avg_price":    raw_data.avg_price,
-            "min_price":    raw_data.min_price,
-            "max_price":    raw_data.max_price,
+            "avg_price":     raw_data.avg_price,
+            "min_price":     raw_data.min_price,
+            "max_price":     raw_data.max_price,
             "listing_count": len(raw_data.listings),
-            "data_source":  raw_data.source,
+            "data_source":   raw_data.source,
             "sample_listings": [
                 {"title": l.title, "price": l.price, "source": l.source}
                 for l in raw_data.listings[:5]
@@ -82,16 +106,18 @@ def generate_report(
     raw_data:  RawData | None = None,
     sentiment: SentimentResult | None = None,
     trends:    TrendResult | None = None,
+    language:  str = "en",
 ) -> MarketReport:
     """Synthesise all tool outputs into a final MarketReport.
 
     Args:
         product_query: The product being analysed.
-        raw_data:      RawData from scraper.py (pricing + provenance).
+        raw_data:      RawData from scraper.py.
         sentiment:     SentimentResult from sentiment.py.
         trends:        TrendResult from trends.py.
+        language:      "en" (default) or "fr".
     """
-    log = logger.bind(tool="report", query=product_query)
+    log = logger.bind(tool="report", query=product_query, language=language)
     log.info("report.start")
 
     context = _build_context(product_query, raw_data, sentiment, trends)
@@ -101,9 +127,10 @@ def generate_report(
         model=settings.groq_model,
         api_key=settings.groq_api_key,
         temperature=0.3,
+        max_tokens=llm_config.report_max_tokens,
     )
     response = llm.invoke([
-        {"role": "system", "content": _SYSTEM_PROMPT},
+        {"role": "system", "content": _build_prompt(language)},
         {"role": "user", "content": f"Research data:\n{context}"},
     ])
 

@@ -159,6 +159,10 @@ class AnalysisRequest(BaseModel):
         default=False,
         description="When True the scraper reads from data/samples/ instead of live DDG.",
     )
+    language: str = Field(
+        default="en",
+        description="Report language — 'en' for English, 'fr' for French.",
+    )
 
 
 class AnalysisResponse(BaseModel):

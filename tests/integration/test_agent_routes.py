@@ -5,7 +5,7 @@ import pytest
 from unittest.mock import AsyncMock, MagicMock, patch
 
 from src.utils.schemas import (
-    AnalysisStatus, MarketReport, ScraperResult, SentimentResult,
+    AnalysisStatus, MarketReport, RawData, ScraperResult, SentimentResult,
     TrendResult, TrendDirection, ReviewInsight, Sentiment, ProductListing,
 )
 
@@ -58,7 +58,7 @@ class TestAgentGraph:
             patch("src.agent.react_agent.analyze_sentiment") as mse,
             patch("src.agent.react_agent.analyze_trends") as mt,
         ):
-            ms.return_value  = ScraperResult(product_query="T", source="sample")
+            ms.return_value  = RawData(product_query="T", source="sample")
             mse.return_value = SentimentResult(
                 product_query="T",
                 insights=ReviewInsight(sentiment=Sentiment.POSITIVE, score=0.8, summary="Good."),
@@ -72,7 +72,7 @@ class TestAgentGraph:
         assert isinstance(report, MarketReport)
         # generate_report must have received typed objects, not strings
         call_kwargs = mock_report.call_args.kwargs
-        assert isinstance(call_kwargs["scraper"],   ScraperResult)
+        assert isinstance(call_kwargs["raw_data"],  RawData)
         assert isinstance(call_kwargs["sentiment"], SentimentResult)
         assert isinstance(call_kwargs["trends"],    TrendResult)
 

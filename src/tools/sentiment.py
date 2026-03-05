@@ -41,9 +41,10 @@ Be specific and grounded in the review content. Provide 3-5 items per list."""
 def _call_llm(product_query: str, reviews_text: str) -> ReviewInsight:
     settings = get_settings()
     llm = ChatGroq(
-        model=settings.groq_model,
+        model=llm_config.fast_model,
         api_key=settings.groq_api_key,
         temperature=llm_config.temperature,
+        max_tokens=llm_config.max_tokens,
     )
     response = llm.invoke([
         {"role": "system", "content": _SYSTEM_PROMPT},

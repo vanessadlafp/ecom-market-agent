@@ -5,7 +5,7 @@ from dataclasses import dataclass, field
 
 @dataclass
 class SearchConfig:
-    ddg_max_results: int = 8
+    ddg_max_results: int = 4 
     ddg_region: str = "wt-wt"
     ddg_safesearch: str = "moderate"
 
