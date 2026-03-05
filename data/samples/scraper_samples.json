@@ -1,0 +1,71 @@
+{
+  "products": {
+    "iphone 16 pro": {
+      "listings": [
+        {"title": "Apple iPhone 16 Pro 128GB Natural Titanium", "price": 999.00, "currency": "USD", "source": "amazon.com", "url": "https://amazon.com/dp/B0CX1234AB", "description": "Latest Apple flagship with A18 Pro chip, ProMotion display, and titanium design."},
+        {"title": "iPhone 16 Pro 256GB Desert Titanium - Unlocked", "price": 1099.00, "currency": "USD", "source": "bestbuy.com", "url": "https://bestbuy.com/site/iphone16pro", "description": "Unlocked, works with all carriers."},
+        {"title": "Apple iPhone 16 Pro Max 256GB", "price": 1199.00, "currency": "USD", "source": "walmart.com", "url": "https://walmart.com/ip/iphone16promax", "description": "Larger screen variant with extended battery life."},
+        {"title": "iPhone 16 Pro 128GB (Refurbished)", "price": 849.99, "currency": "USD", "source": "ebay.com", "url": "https://ebay.com/itm/9876543", "description": "Certified refurbished, 90-day warranty."},
+        {"title": "Apple iPhone 16 Pro 512GB Black Titanium", "price": 1299.00, "currency": "USD", "source": "target.com", "url": "https://target.com/p/iphone16pro512", "description": "High-capacity model for power users."}
+      ],
+      "review_snippets": [
+        "The iPhone 16 Pro is a significant upgrade. The camera system is outstanding. Battery life improved noticeably. Build quality is premium as always.",
+        "Titanium frame feels lighter and more premium. ProMotion display is buttery smooth. High price is the only downside — $999 for base storage feels steep.",
+        "Best iPhone camera yet. Photographic Styles and 5x optical zoom are game changers. Heat management much improved vs last year.",
+        "Coming from Android, ecosystem lock-in is real but hardware quality is undeniable. Price is the biggest con.",
+        "Charging speed still lags behind Android flagships. Otherwise a near-perfect device for daily use."
+      ],
+      "trend_snippets": [
+        "Apple iPhone 16 Pro demand surges in Q4 2024 with record pre-order numbers. Analyst estimates peg unit sales at 80M+ for the cycle.",
+        "IDC notes iPhone 16 Pro driving Apple to 22% global smartphone market share, up from 18% prior year. Titanium design cited as key upgrade driver.",
+        "Consumer search interest for iPhone 16 Pro remains elevated into Q1 2025. Trade-in promotions from carriers extending demand.",
+        "Despite premium pricing, iPhone 16 Pro maintains strong NPS scores. Refurbished market growing 15% YoY.",
+        "Samsung Galaxy S25 Ultra launch has not materially impacted iPhone 16 Pro intent metrics among existing iOS users."
+      ]
+    },
+    "sony wh-1000xm6": {
+      "listings": [
+        {"title": "Sony WH-1000XM6 Wireless Noise Cancelling - Black", "price": 349.99, "currency": "USD", "source": "amazon.com", "url": "https://amazon.com/dp/B0DXYZ1234", "description": "Industry-leading noise cancellation, 30hr battery."},
+        {"title": "Sony WH-1000XM6 - Platinum Silver", "price": 379.99, "currency": "USD", "source": "bestbuy.com", "url": "https://bestbuy.com/site/sonywh1000xm6", "description": "Premium colour variant with carrying case."},
+        {"title": "Sony WH-1000XM6 (Open Box - Like New)", "price": 279.99, "currency": "USD", "source": "ebay.com", "url": "https://ebay.com/itm/1122334455", "description": "Open box, original accessories included."},
+        {"title": "Sony WH-1000XM6 Wireless Headphones", "price": 349.00, "currency": "USD", "source": "walmart.com", "url": "https://walmart.com/ip/sonywh1000xm6", "description": "Speak-to-chat, adaptive sound control."}
+      ],
+      "review_snippets": [
+        "XM6 is a clear improvement over XM5. ANC is noticeably stronger in wind and transit. Multipoint connection finally works reliably.",
+        "Sound signature is more balanced — less bass-heavy. Comfort improved with new ear pads. 30-hour battery life excellent for travel.",
+        "Speak-to-chat works instantly with no false triggers. Call quality much improved. Carry case redesign is more compact.",
+        "Comparing to Bose QC45: Sony wins on ANC and sound quality. At $350 it is expensive but worth it for frequent travellers.",
+        "Touch controls take getting used to and are easy to accidentally trigger. Companion app occasionally buggy on Android."
+      ],
+      "trend_snippets": [
+        "Premium ANC headphone market growing at 12% CAGR through 2026. Sony and Bose dominate the over-$300 segment with combined 60%+ share.",
+        "Work-from-home trends sustaining strong demand for premium noise-cancelling headphones in 2024-2025. Corporate gifting a growing channel.",
+        "Sony WH-1000XM6 launch drove category search volume up 34% in weeks following announcement. Upgrade cycle from XM4/XM5 accelerating.",
+        "Apple AirPods Max 2 expected in 2025 is primary competitive threat to Sony's premium headphone position.",
+        "Travel retail emerging as key growth channel. Airport and duty-free headphone sales up 22% YoY."
+      ]
+    },
+    "nike air max 2025": {
+      "listings": [
+        {"title": "Nike Air Max 2025 Men's Running Shoe", "price": 179.99, "currency": "USD", "source": "amazon.com", "url": "https://amazon.com/dp/B0NIKE2025", "description": "Updated Air Max cushioning, breathable mesh upper."},
+        {"title": "Nike Air Max 2025 Women's Shoe", "price": 169.99, "currency": "USD", "source": "target.com", "url": "https://target.com/p/nikeairmax2025w", "description": "Women's colourway with extra arch support."},
+        {"title": "Nike Air Max 2025 - Multiple Colours", "price": 189.99, "currency": "USD", "source": "bestbuy.com", "url": "https://bestbuy.com/site/nikeairmax2025", "description": "Available in 6 colourways, sizes 6-15."},
+        {"title": "Nike Air Max 2025 Kids GS", "price": 129.99, "currency": "USD", "source": "walmart.com", "url": "https://walmart.com/ip/nikeairmax2025kids", "description": "Grade school sizing, durable outsole."}
+      ],
+      "review_snippets": [
+        "Air Max 2025 is the most comfortable running shoe I have owned. Updated cushioning absorbs impact noticeably better. True to size.",
+        "Breathability is excellent — no hot spots even on long runs. The colourways this year are great. Sole durability seems improved.",
+        "Great for casual wear and light jogging. Not ideal for serious marathon training — too much cushion stack for speed work.",
+        "Sizing runs slightly narrow. Recommend going half size up if you have wide feet. Otherwise outstanding comfort for all-day wear.",
+        "Heel counter is firmer this year which reduces blister risk on longer walks. Price point is reasonable for the Nike brand."
+      ],
+      "trend_snippets": [
+        "Nike Air Max franchise maintains strong cultural relevance in 2025. Collaboration drops driving secondary market premiums of 2-3x retail.",
+        "Athleisure market projected to reach $662B globally by 2030. Nike Air Max positioned as crossover leader between performance and lifestyle.",
+        "Gen Z brand affinity for Air Max line remains top-tier in YouGov surveys. Social media mentions up 28% YoY following 2025 launch.",
+        "Nike DTC strategy accelerating — Air Max 2025 exclusive colourways driving SNKRS app downloads and membership growth.",
+        "Nike Air Max 2025 uses 20% recycled content, resonating with 18-34 demographic ESG preferences in purchase surveys."
+      ]
+    }
+  }
+}

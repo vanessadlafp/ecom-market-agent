@@ -1,0 +1,46 @@
+{
+  "product_query": "default",
+  "source": "sample",
+  "listings": [
+    {
+      "title": "Sample Product Pro 128GB — Amazon",
+      "price": 999.99,
+      "currency": "USD",
+      "source": "amazon.com",
+      "url": "https://amazon.com/sample",
+      "description": "Latest model with improved performance. Highly rated by customers. Free shipping available."
+    },
+    {
+      "title": "Sample Product Pro 256GB — Best Buy",
+      "price": 1099.99,
+      "currency": "USD",
+      "source": "bestbuy.com",
+      "url": "https://bestbuy.com/sample",
+      "description": "Bigger storage option. In stock and ready to ship. Extended warranty available."
+    },
+    {
+      "title": "Sample Product Pro 128GB (Refurbished) — eBay",
+      "price": 749.99,
+      "currency": "USD",
+      "source": "ebay.com",
+      "url": "https://ebay.com/sample",
+      "description": "Grade A refurbished. 90-day warranty. Ships fast. Seller rating 99.2%."
+    },
+    {
+      "title": "Sample Product Pro — Walmart",
+      "price": 979.00,
+      "currency": "USD",
+      "source": "walmart.com",
+      "url": "https://walmart.com/sample",
+      "description": "Price match guaranteed. Available for in-store pickup or 2-day delivery."
+    },
+    {
+      "title": "Sample Product Pro 128GB — Target",
+      "price": 999.99,
+      "currency": "USD",
+      "source": "target.com",
+      "url": "https://target.com/sample",
+      "description": "Circle members save 5%. Gift wrapping available. Same-day delivery in select areas."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "product_query": "iPhone 16 Pro",
+  "source": "sample",
+  "listings": [
+    {
+      "title": "Apple iPhone 16 Pro 128GB Natural Titanium",
+      "price": 999.00,
+      "currency": "USD",
+      "source": "amazon.com",
+      "url": "https://amazon.com/dp/iphone16pro",
+      "description": "A18 Pro chip, 48MP camera system, titanium design. 4.7 stars, 2,341 ratings. Prime eligible."
+    },
+    {
+      "title": "Apple iPhone 16 Pro 256GB — Best Buy",
+      "price": 1099.00,
+      "currency": "USD",
+      "source": "bestbuy.com",
+      "url": "https://bestbuy.com/iphone16pro",
+      "description": "Upgrade and save up to $830 with trade-in. 24-month installment option available. In stock."
+    },
+    {
+      "title": "iPhone 16 Pro 512GB Desert Titanium — Apple Store",
+      "price": 1299.00,
+      "currency": "USD",
+      "source": "apple.com",
+      "url": "https://apple.com/shop/iphone-16-pro",
+      "description": "All-day battery life. ProMotion display. Camera Control button. Apple Intelligence ready."
+    },
+    {
+      "title": "Apple iPhone 16 Pro 128GB (Unlocked) — Walmart",
+      "price": 979.00,
+      "currency": "USD",
+      "source": "walmart.com",
+      "url": "https://walmart.com/iphone16",
+      "description": "Works with any carrier. Free 2-day delivery. Price-matched guarantee."
+    },
+    {
+      "title": "iPhone 16 Pro 128GB — Near Mint (eBay)",
+      "price": 839.99,
+      "currency": "USD",
+      "source": "ebay.com",
+      "url": "https://ebay.com/iphone16pro-used",
+      "description": "Near mint condition. Unlocked. Battery health 98%. Includes original box and accessories."
+    }
+  ]
+}
