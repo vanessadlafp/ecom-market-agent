@@ -34,6 +34,6 @@ docker-logs:
 	docker compose logs -f agent
 
 docker-shell:
-	docker compose exec app bash
+	docker compose exec agent bash
 clean:
 	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null; true

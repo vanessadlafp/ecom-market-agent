@@ -99,40 +99,66 @@ _HTML = """<!DOCTYPE html>
   <title>Market Analysis Agent</title>
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:system-ui,sans-serif;background:#0f1117;color:#e2e8f0;min-height:100vh}
-    header{background:#1a1d27;border-bottom:1px solid #2d3748;padding:1rem 2rem;display:flex;align-items:center;gap:1rem}
-    header h1{font-size:1.4rem;font-weight:700;color:#7c3aed}
-    header span{color:#94a3b8;font-size:.85rem}
-    main{max-width:920px;margin:2rem auto;padding:0 1rem}
-    .card{background:#1a1d27;border:1px solid #2d3748;border-radius:12px;padding:1.5rem;margin-bottom:1.5rem}
-    .card-label{font-size:.8rem;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem}
+    body{font-family:system-ui,-apple-system,sans-serif;background:#f4f5f7;color:#1a1d23;min-height:100vh}
+
+    /* Header */
+    header{background:#ffffff;border-bottom:1px solid #e0e3e8;padding:1rem 2rem;display:flex;align-items:center;gap:1rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    header h1{font-size:1.25rem;font-weight:700;color:#1a1d23;letter-spacing:-.01em}
+    header span{color:#6b7280;font-size:.85rem}
+
+    /* Layout */
+    main{max-width:860px;margin:2rem auto;padding:0 1.25rem}
+
+    /* Cards */
+    .card{background:#ffffff;border:1px solid #e0e3e8;border-radius:10px;padding:1.5rem;margin-bottom:1.25rem;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+    .card-label{font-size:.75rem;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.9rem}
+
+    /* Input row */
     .row{display:flex;gap:.75rem;align-items:center}
-    input[type=text]{flex:1;padding:.75rem 1rem;border-radius:8px;border:1px solid #4a5568;background:#0f1117;color:#e2e8f0;font-size:1rem;outline:none}
-    input[type=text]:focus{border-color:#7c3aed}
-    label.toggle{display:flex;align-items:center;gap:.4rem;font-size:.85rem;color:#94a3b8;white-space:nowrap;cursor:pointer}
-    input[type=checkbox]{accent-color:#7c3aed;width:16px;height:16px}
-    button{padding:.75rem 1.4rem;border-radius:8px;border:none;background:#7c3aed;color:#fff;font-size:1rem;cursor:pointer;font-weight:600;transition:background .2s}
-    button:hover{background:#6d28d9}
-    button:disabled{background:#4a5568;cursor:not-allowed}
-    .badge{display:inline-block;padding:.2rem .6rem;border-radius:999px;font-size:.75rem;font-weight:600}
-    .completed{background:#065f46;color:#6ee7b7}
-    .failed{background:#7f1d1d;color:#fca5a5}
-    .sample-badge{background:#1e3a5f;color:#93c5fd;font-size:.7rem;padding:.1rem .5rem;border-radius:999px;margin-left:.5rem}
-    .section{margin-bottom:1.25rem}
-    .section h3{color:#7c3aed;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.5rem}
-    .section p,.section li{line-height:1.75;color:#cbd5e1}
-    ul.recs{padding-left:1.25rem}
-    .meta{color:#64748b;font-size:.8rem;margin-top:.4rem}
-    .err{background:#7f1d1d;border:1px solid #ef4444;border-radius:8px;padding:1rem;color:#fca5a5;margin-bottom:1rem;display:none}
+    input[type=text]{flex:1;padding:.7rem 1rem;border-radius:7px;border:1.5px solid #d1d5db;background:#f9fafb;color:#1a1d23;font-size:.95rem;outline:none;transition:border-color .15s}
+    input[type=text]:focus{border-color:#374151;background:#fff}
+    label.toggle{display:flex;align-items:center;gap:.4rem;font-size:.85rem;color:#6b7280;white-space:nowrap;cursor:pointer;user-select:none}
+    input[type=checkbox]{accent-color:#374151;width:15px;height:15px}
+    button{padding:.7rem 1.4rem;border-radius:7px;border:none;background:#1a1d23;color:#fff;font-size:.95rem;cursor:pointer;font-weight:600;transition:background .15s;white-space:nowrap}
+    button:hover{background:#374151}
+    button:disabled{background:#9ca3af;cursor:not-allowed}
+    .hint{color:#9ca3af;font-size:.78rem;margin-top:.6rem}
+
+    /* Badges */
+    .badge{display:inline-block;padding:.2rem .55rem;border-radius:5px;font-size:.72rem;font-weight:600;letter-spacing:.02em}
+    .completed{background:#dcfce7;color:#166534}
+    .failed{background:#fee2e2;color:#991b1b}
+    .sample-badge{background:#f0f9ff;color:#0369a1;border:1px solid #bae6fd;font-size:.7rem;padding:.15rem .5rem;border-radius:4px;margin-left:.4rem;font-weight:500}
+
+    /* Report sections */
+    .section{margin-bottom:1.4rem}
+    .section h3{font-size:.72rem;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
+    .section p{line-height:1.75;color:#374151;font-size:.93rem}
+    ul.recs{padding-left:1.1rem}
+    ul.recs li{line-height:1.75;color:#374151;font-size:.93rem;margin-bottom:.2rem}
+
+    /* Meta / dividers */
+    .meta{color:#9ca3af;font-size:.78rem;margin-top:.35rem}
+    hr{border:none;border-top:1px solid #e0e3e8;margin:1.1rem 0}
+
+    /* Error */
+    .err{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:1rem;color:#dc2626;margin-bottom:1rem;display:none;font-size:.9rem}
+
+    /* Result hidden by default */
     #result{display:none}
-    .spin{display:inline-block;width:16px;height:16px;border:3px solid #4a5568;border-top-color:#a78bfa;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:.4rem}
+
+    /* Spinner */
+    .spin{display:inline-block;width:14px;height:14px;border:2.5px solid #d1d5db;border-top-color:#374151;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:.4rem}
     @keyframes spin{to{transform:rotate(360deg)}}
-    hr{border:none;border-top:1px solid #2d3748;margin:1rem 0}
+
+    /* Report header */
+    .report-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem}
+    .report-title{font-size:1.1rem;font-weight:700;color:#1a1d23;letter-spacing:-.01em}
   </style>
 </head>
 <body>
 <header>
-  <h1>🛒 Market Analysis Agent</h1>
+  <h1>📊 Market Analysis Agent</h1>
   <span>LangGraph · Groq · DuckDuckGo</span>
 </header>
 <main>
@@ -143,15 +169,18 @@ _HTML = """<!DOCTYPE html>
       <label class="toggle"><input type="checkbox" id="sample"/> Sample data</label>
       <button id="btn" onclick="run()">Analyse</button>
     </div>
-    <p class="meta">Toggle "Sample data" to use fixture files instead of live web scraping.</p>
+    <p class="hint">Toggle "Sample data" to use fixture files instead of live web scraping.</p>
   </div>
 
   <div class="err" id="err"></div>
 
   <div id="result" class="card">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem">
-      <span class="card-label" style="margin:0" id="rtitle"></span>
-      <div><span class="badge" id="badge"></span><span id="sample-ind"></span></div>
+    <div class="report-header">
+      <span class="report-title" id="rtitle"></span>
+      <div style="display:flex;align-items:center;gap:.4rem;flex-shrink:0">
+        <span class="badge" id="badge"></span>
+        <span id="sample-ind"></span>
+      </div>
     </div>
     <p class="meta" id="rmeta"></p>
     <hr/>
@@ -193,9 +222,8 @@ async function run(){
       const b=document.getElementById('badge');
       b.textContent=d.status; b.className='badge '+d.status;
       document.getElementById('sample-ind').innerHTML=
-        rp.raw_scraper?.source==='sample'?'<span class="sample-badge">sample data</span>':'';
-      document.getElementById('rmeta').textContent=
-        `ID ${d.request_id} · ${d.duration_seconds}s`;
+        rp.raw_data?.source==='sample'?'<span class="sample-badge">sample data</span>':'';
+      document.getElementById('rmeta').textContent=`ID ${d.request_id} · ${d.duration_seconds}s`;
       document.getElementById('exec').textContent=rp.executive_summary;
       document.getElementById('price').textContent=rp.pricing_analysis;
       document.getElementById('sent').textContent=rp.sentiment_analysis;

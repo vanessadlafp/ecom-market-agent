@@ -35,7 +35,7 @@ from src.utils.schemas import ProductListing, RawData
 
 logger = get_logger(__name__)
 
-_SAMPLES_PATH = Path(__file__).parents[3] / "data" / "samples" / "scraper_samples.json"
+_SAMPLES_PATH = Path(__file__).parents[2] / "data" / "samples" / "scraper_samples.json"
 
 _PRICE_RE = re.compile(
     r"(?:[$€£¥])\s*[\d,]+(?:\.\d{1,2})?|[\d,]+(?:\.\d{1,2})?\s*(?:USD|EUR|GBP|CAD|AUD)",
@@ -229,8 +229,8 @@ def scrape_product(
             source="sample",
             **stats,
         )
-
-    if use_sample_data or get_settings().use_mock_scraper:
+        
+    if use_sample_data or get_settings().use_sample_data:
         return _load_sample(product_query)
 
     return _scrape_live(product_query)
