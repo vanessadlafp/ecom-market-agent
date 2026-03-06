@@ -95,7 +95,7 @@ ecom-market-agent/
 
 Demo of the report flow: running an analysis, toggling **Sample data**, and switching report **language** (e.g. Français).
 
-![Market Analysis Agent demo](ecom-market-agent-demo.mp4)
+![Market Analysis Agent demo](ecom-market-agent-demo.gif)
 
 ## Quickstart
 
